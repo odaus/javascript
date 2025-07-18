@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>City to Country Finder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 100px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #34495e;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>City to Country Finder</h1>
+  <input type="text" id="cityInput" placeholder="Enter a city name" />
+  <button onclick="findCountry()">Find Country</button>
+  <div id="result"></div>
+
+  <script>
+    const cityCountryMap = {
+      "new york": "United States",
+      "los angeles": "United States",
+      "chicago": "United States",
+      "toronto": "Canada",
+      "vancouver": "Canada",
+      "montreal": "Canada",
+      "london": "United Kingdom",
+      "manchester": "United Kingdom",
+      "birmingham": "United Kingdom",
+      "paris": "France",
+      "lyon": "France",
+      "marseille": "France",
+      "berlin": "Germany",
+      "munich": "Germany",
+      "frankfurt": "Germany",
+      "tokyo": "Japan",
+      "osaka": "Japan",
+      "kyoto": "Japan",
+      "beijing": "China",
+      "shanghai": "China",
+      "guangzhou": "China",
+      "mumbai": "India",
+      "delhi": "India",
+      "bangalore": "India",
+      "sydney": "Australia",
+      "melbourne": "Australia",
+      "brisbane": "Australia",
+      "nairobi": "Kenya",
+      "mombasa": "Kenya",
+      "kisumu": "Kenya",
+      "lagos": "Nigeria",
+      "abuja": "Nigeria",
+      "kano": "Nigeria",
+      "cairo": "Egypt",
+      "alexandria": "Egypt",
+      "giza": "Egypt",
+      "são paulo": "Brazil",
+      "rio de janeiro": "Brazil",
+      "brasilia": "Brazil",
+      "mexico city": "Mexico",
+      "guadalajara": "Mexico",
+      "monterrey": "Mexico",
+      "moscow": "Russia",
+      "saint petersburg": "Russia",
+      "novosibirsk": "Russia"
+    };
+
+    function findCountry() {
+      const input = document.getElementById("cityInput").value.trim().toLowerCase();
+      const country = cityCountryMap[input];
+
+      if (country) {
+        document.getElementById("result").textContent = `Country: ${country}`;
+      } else {
+        document.getElementById("result").textContent = "City not found in our database.";
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fruit Category Finder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 100px;
+    }
+
+    h1 {
+      color: #4CAF50;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 5px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Fruit Category Finder</h1>
+  <input type="text" id="fruitInput" placeholder="Enter a fruit name" />
+  <button onclick="findCategory()">Find Category</button>
+  <div id="result"></div>
+
+  <script>
+    const fruitCategories = {
+      citrus: ["orange", "lemon", "lime", "grapefruit", "mandarin"],
+      berry: ["strawberry", "blueberry", "raspberry", "blackberry"],
+      stone: ["peach", "cherry", "plum", "apricot", "nectarine"],
+      tropical: ["banana", "pineapple", "mango", "papaya", "coconut"],
+      pome: ["apple", "pear", "quince"],
+      melon: ["watermelon", "cantaloupe", "honeydew"]
+    };
+
+    function findCategory() {
+      const input = document.getElementById("fruitInput").value.trim().toLowerCase();
+      let found = false;
+
+      for (const [category, fruits] of Object.entries(fruitCategories)) {
+        if (fruits.includes(input)) {
+          document.getElementById("result").textContent = `Category: ${category.charAt(0).toUpperCase() + category.slice(1)}`;
+          found = true;
+          break;
+        }
+      }
+
+      if (!found) {
+        document.getElementById("result").textContent = "Fruit not recognized or category not defined.";
+      }
+    }
+  </script>
+
+</body>
+</html>
